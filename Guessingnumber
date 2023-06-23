@@ -1,0 +1,30 @@
+import java.util.Scanner;
+import java.util.Random;
+
+public class Guessingnumber {
+    public static void main(String arg[]) {
+        Scanner sc = new Scanner(System.in);
+        Random random = new Random();
+        int number;
+        number = random.nextInt(100);
+        int chances = 5;
+        int i, guessnumber;
+        System.out.println("Choose a number between 1 and 100 ");
+        for (i = 0; i < chances; i++) {
+            System.out.println("Guess the number:");
+            guessnumber = sc.nextInt();
+            if (number == guessnumber) {
+                System.out.println("Congratulations! You have guessed the number");
+                break;
+            } else if (number > guessnumber && i != chances - 1) {
+                System.out.println("The number is greater than" + guessnumber);
+            } else if (number < guessnumber && i != chances - 1) {
+                System.out.println("The number is less than" + guessnumber);
+            }
+        }
+        if (i == chances) {
+            System.out.println("You have completed the chances");
+            System.out.println("The number was" + number);
+        }
+    }
+}
